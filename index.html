@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Iraola | Innovación y Transformación Digital Deportiva</title>
+    <style>
+        /* --- VARIABLES Y ESTILOS GENERALES --- */
+        :root {
+            --primary-color: #0f172a; /* Azul oscuro profundo */
+            --accent-color: #0ea5e9; /* Azul brillante tech */
+            --text-color: #334155;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --max-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-light);
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style-position: inside;
+        }
+
+        /* --- HEADER Y NAVEGACIÓN --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- HERO SECTION (PORTADA) --- */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1e293b 100%);
+            color: var(--white);
+            padding: 160px 2rem 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            background-color: #0284c7;
+            transform: translateY(-2px);
+        }
+
+        /* --- SECCIONES COMUNES --- */
+        section {
+            padding: 80px 2rem;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title .divider {
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 0 auto;
+        }
+
+        /* --- SOBRE MÍ --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content ul {
+            margin-top: 1.5rem;
+            list-style: none;
+        }
+
+        .about-content li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .about-content li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .highlight-box {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--accent-color);
+        }
+
+        /* --- PROBLEMAS / RETOS --- */
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 0.5rem;
+        }
+
+        .card ul {
+            padding-left: 1rem;
+            font-size: 0.95rem;
+        }
+
+        /* --- SERVICIOS --- */
+        .services-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .service-column {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .service-header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .service-body {
+            padding: 2rem;
+        }
+
+        .service-body ul li {
+            margin-bottom: 0.8rem;
+            list-style: none;
+        }
+        
+        .service-body ul li::before {
+            content: "✓";
+            color: var(--accent-color);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        /* --- EXPERIENCIA --- */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid var(--accent-color);
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            width: 16px;
+            height: 16px;
+            background-color: var(--white);
+            border: 3px solid var(--accent-color);
+            border-radius: 50%;
+            position: absolute;
+            left: -2.6rem;
+            top: 5px;
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            opacity: 0.7;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .about-grid, .services-container { grid-template-columns: 1fr; }
+            .nav-container { flex-direction: column; gap: 1rem; }
+            nav ul { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">Juan <span>Iraola</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#sobre-mi">Sobre Mí</a></li>
+                    <li><a href="#desafios">El Desafío</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#experiencia">Experiencia</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <h1>Conectando Clubes, Startups y Marcas alrededor de la Innovación y el Fútbol</h1>
+        <p>Más de 35 años uniendo tecnología y estrategia de negocio para impulsar la transformación digital en el deporte.</p>
+        <a href="#servicios" class="btn">Ver Servicios</a>
+    </section>
+
+    <section id="sobre-mi">
+        <div class="section-title">
+            <h2>Perfil Profesional</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="about-grid">
+            <div class="about-content">
+                <h3>Líder en Transformación Digital e Innovación Deportiva</h3>
+                [cite_start]<p>Ingeniero Industrial por la Universidad de Navarra[cite: 11]. [cite_start]Mi misión es impulsar la transformación digital para generar nuevas fuentes de ingresos, mejorar el rendimiento deportivo y optimizar la eficiencia operativa[cite: 9].</p>
+                <ul>
+                    [cite_start]<li><strong>Experiencia:</strong> Más de 35 años gestionando equipos y estrategia[cite: 8].</li>
+                    [cite_start]<li><strong>Especialización:</strong> Web3, IA, Big Data aplicados al sector deportivo[cite: 10].</li>
+                    [cite_start]<li><strong>Docencia:</strong> Profesor en másteres de LaLiga, Escuela Universitaria Real Madrid y Academia Rafa Nadal[cite: 34].</li>
+                </ul>
+            </div>
+            <div class="highlight-box">
+                <h3>Background Consultor</h3>
+                [cite_start]<p>Gestión previa de equipos de más de 120 personas en grandes consultoras (Prodware/Accenture) liderando implantaciones de ERP, CRM y Business Intelligence[cite: 35, 36, 38].</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="desafios">
+        <div class="section-title">
+            <h2>Entendiendo el Ecosistema</h2>
+            <p>Los retos actuales que frenan la innovación en el deporte</p>
+            <div class="divider"></div>
+        </div>
+        <div class="challenges-grid">
+            <div class="card">
+                <h3>Clubes y Federaciones</h3>
+                <ul>
+                    [cite_start]<li>Falta de estrategia clara de transformación digital[cite: 42].</li>
+                    [cite_start]<li>Recursos internos limitados en tecnología y datos[cite: 42].</li>
+                    [cite_start]<li>Datos de fans y de rendimiento infrautilizados[cite: 43].</li>
+                    [cite_start]<li>Dificultad para seleccionar soluciones en un mercado fragmentado[cite: 43].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Startups Sportech</h3>
+                <ul>
+                    [cite_start]<li>Acceso complejo a decisores en clubes[cite: 46].</li>
+                    [cite_start]<li>Tiempos largos de respuesta y validación[cite: 47].</li>
+                    [cite_start]<li>Falta de conocimiento de procesos internos[cite: 48].</li>
+                    [cite_start]<li>Dificultad para conseguir "Casos de Éxito" reales[cite: 49].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Marcas y Patrocinadores</h3>
+                <ul>
+                    [cite_start]<li>Buscan más que visibilidad en camisetas[cite: 51].</li>
+                    [cite_start]<li>Dificultad para diseñar activaciones con impacto real[cite: 52].</li>
+                    [cite_start]<li>Falta de métricas claras sobre el ROI de innovación[cite: 53].</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios">
+        <div class="section-title">
+            <h2>Propuesta de Servicios</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="services-container">
+            <div class="service-column">
+                <div class="service-header">
+                    <h3>Para Clubes</h3>
+                </div>
+                <div class="service-body">
+                    <ul>
+                        [cite_start]<li><strong>Diagnóstico Digital:</strong> Análisis 360º de situación actual[cite: 56].</li>
+                        [cite_start]<li><strong>Plan Director:</strong> Visión, prioridades y roadmap tecnológico[cite: 57].</li>
+                        [cite_start]<li><strong>Identificación de Oportunidades:</strong> Fan engagement, operaciones y rendimiento[cite: 58].</li>
+                        [cite_start]<li><strong>Gestión de Proyectos:</strong> Implementación de CRM, Data Lakes, IA y Ticketing[cite: 60].</li>
+                        [cite_start]<li><strong>Gestión del Cambio:</strong> Formación y acompañamiento al personal[cite: 61].</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service-column">
+                <div class="service-header">
+                    <h3>Para Startups</h3>
+                </div>
+                <div class="service-body">
+                    <ul>
+                        [cite_start]<li><strong>Mentoría Estratégica:</strong> Producto, modelo de negocio y posicionamiento[cite: 62].</li>
+                        [cite_start]<li><strong>Market Fit:</strong> Acompañamiento en encaje con clubes y fans[cite: 63].</li>
+                        [cite_start]<li><strong>Pilotos Reales:</strong> Diseño y ejecución con métricas de éxito[cite: 64].</li>
+                        [cite_start]<li><strong>Preparación Inversión:</strong> Ayuda con pitch y métricas para rondas[cite: 65].</li>
+                        [cite_start]<li><strong>Networking:</strong> Acceso a advisors y programas de aceleración[cite: 66].</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiencia">
+        <div class="section-title">
+            <h2>Trayectoria y Casos de Éxito</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="timeline-date">2021 – Presente</span>
+                <h3>Grupo Baskonia - Alavés</h3>
+                [cite_start]<p>Transformación Digital e Innovación 360º[cite: 13].</p>
+                <ul>
+                    [cite_start]<li>Implementación de Data Lake centralizado y CRM para Baloncesto, Fútbol y Universidad[cite: 18].</li>
+                    [cite_start]<li>Uso de IA para etiquetado automático de contenido y entrenamientos[cite: 19].</li>
+                    [cite_start]<li>Sistemas de acceso biométrico y estrategia Single Sign-On (SSO)[cite: 21].</li>
+                    [cite_start]<li>Digitalización de retail y hostelería (40+ puntos de venta)[cite: 20].</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <span class="timeline-date">2015 – 2021</span>
+                <h3>Real Sociedad</h3>
+                [cite_start]<p>Crecimiento de Negocio y Smart Stadium[cite: 24].</p>
+                <ul>
+                    [cite_start]<li>Captación de 15.000 nuevos socios mediante tecnología[cite: 25].</li>
+                    [cite_start]<li>Incremento del 85% en ventas de tienda online[cite: 25].</li>
+                    [cite_start]<li>Innovación abierta y competiciones de startups para el estadio[cite: 28].</li>
+                    [cite_start]<li>Sistema integral de datos médicos y rendimiento deportivo[cite: 27].</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <span class="timeline-date">Emprendimiento</span>
+                <h3>Iniciativas Fundadas</h3>
+                <ul>
+                    [cite_start]<li><strong>Sports Innovation Alliance (SIA):</strong> Alianza internacional de 34 clubes (Celtic, LAFC, etc.)[cite: 30].</li>
+                    [cite_start]<li><strong>Stredium:</strong> Soluciones Web3 y Blockchain para deporte[cite: 31].</li>
+                    [cite_start]<li><strong>Ticalia:</strong> Redes sociales privadas para clubes y federaciones[cite: 32].</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo" style="color:white; margin-bottom:1rem;">Juan <span>Iraola</span></div>
+        <p>Consultoría de Innovación y Tecnología Deportiva.</p>
+        <p>&copy; 2025 Juan Iraola. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
